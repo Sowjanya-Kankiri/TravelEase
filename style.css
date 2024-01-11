@@ -1,0 +1,289 @@
+body {
+  font-family: 'Arial', sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f8f8f8;
+}
+
+.navbar {
+  display: flex;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  background-color: #ffffff;
+  padding: 25px;
+  align-items: center;
+  margin: 20px;
+}
+
+.navbar input {
+  width: 50%;
+  padding: 5px;
+  border-radius: 10px;
+  border-color: none;
+  margin: 0 10px;
+  padding: 8px;
+  border: 1px solid #ddd;
+
+}
+
+.navbar #search {
+  border-radius: 45%;
+  background-color: #fd6a6f;
+  font-size: 20px;
+  color: black;
+
+}
+
+.navbar button {
+  padding: 10px;
+  background-color: #fd6a6f;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  margin-right: 3px;
+}
+
+.navbar {
+  background-color: #333;
+  padding: 15px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+button {
+  background-color: #414141;
+  color: white;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  cursor: pointer;
+}
+
+.dropdown-content a {
+  color: rgb(12, 12, 12);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content p:hover {
+  background-color: #fd6a6f;
+  width: max-content;
+  height: max-content;
+}
+
+.dropdown-content a:hover {
+  background-color: #facbcb;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar img {
+  height: 30px;
+  width: auto;
+  cursor: pointer;
+}
+
+#savaedList {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+}
+
+.Fbtn {
+  text-decoration: none;
+  color: white;
+}
+
+.s-navbar {
+  display: flex;
+  overflow-x: auto;
+  overflow-x: hidden;
+  padding: 10px;
+  justify-content: space-around;
+  background-color: #fff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+.s-navbar button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  align-content: space-between;
+  outline: none;
+  padding: 5px;
+  transition: background-color 0.3s;
+}
+
+.s-navbar button:hover {
+  background-color: #f2f2f2;
+}
+
+.s-navbar img {
+  width: auto;
+  height: 40px;
+}
+
+.s-navbar span {
+  font-size: 12px;
+  color: black;
+  top: 10px;
+  text-align: center;
+  display: block;
+  margin-top: 5px;
+}
+
+.s-navbar .active {
+  background-color: #fce9ea;
+  color: white;
+  border-radius: 5px;
+}
+
+.s-navbar.searching {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.s-navbar.searching button:hover {
+  background-color: transparent;
+}
+
+.s-navbar.searching .active {
+  background-color: transparent;
+  color: black;
+}
+
+
+#container {
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  gap: 10px;
+}
+
+#container img {
+  width: 350px;
+  height: 250px;
+  border-radius: 10px;
+}
+
+.product-container {
+  position: relative;
+}
+
+.imageContainer {
+  position: relative;
+}
+
+.favIcon {
+  position: absolute;
+  top: 10px;
+  right: 50px;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+}
+
+.favIcon.favorited {
+  color: red;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar input {
+    width: 100%;
+    margin: 10px 0px;
+  }
+
+  .navbar #search {
+    margin-top: 10px;
+  }
+
+  .dropdown button {
+    margin-top: 10px;
+  }
+
+  .s-navbar {
+    flex-direction: row;
+    overflow-x: hidden;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  #container img {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+  }
+
+  .favIcon {
+    position: absolute;
+    top: 2px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .s-navbar img {
+    width: min-content;
+    padding: 5%;
+    margin: 0px;
+    margin-right: 5px;
+  }
+.s-navbar input{
+  width: min-content;
+}
+  .favIcon {
+    position: absolute;
+    top: 2px;
+    right: 35px;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+  }
+
+  #container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0px;
+  }
+
+  #container img {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+  }
+}

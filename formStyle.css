@@ -1,0 +1,59 @@
+*{
+    margin: 15px;
+}
+body{
+    background-image: url(https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/ShIZkZR4Zj4uxbdal/videoblocks-lobby-hotel-blurred-background_bn-fsihsf_thumbnail-1080_01.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.nav img{
+    width: auto;
+    height: 30px;
+}
+.box{
+    justify-content: center;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 5px;
+    align-content: flex-end;
+    background-color: white;
+    margin: 0% 40%;
+    width: 300px;
+   
+    padding: 50px ;
+    
+}
+.box #text{
+    font-size: 25px;
+    font-weight: bold;
+    
+}
+.box label{
+    font-size: 20px;
+    font-weight: lighter;
+    margin-bottom: 10px;
+}
+input{
+  border-radius: 20px solid white;  
+  height: 30px;
+  width: 80%;
+}
+#submit{
+    padding: 10px;
+    align-content: center;
+    background-color: rgb(162, 221, 245);
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    width: fit-content;
+    height: fit-content;
+    font-size: 15px;
+}
+h2{
+    color:#fd6a6f ;
+    font-size: 28px;
+}
+@media only screen and (max-width: 768px){
+    .box{
+       margin: 20px auto;
+    }
+}

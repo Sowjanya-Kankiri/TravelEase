@@ -1,0 +1,105 @@
+*{
+    margin: 20px;
+}
+a{
+    font-size: 15px;
+    color: red;
+    text-decoration: none;
+}
+.confirmation-container{
+    display: flex;
+}
+.confirmation-details{
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+#placeImage{
+    height: 300px;
+    width: 350px;
+    border-radius: 5px;
+    justify-content: flex-end;
+    align-content: flex-end;
+}
+.details-info{
+    align-content: flex-start;
+    font-size: 16px;
+}
+#locationName{
+    font-weight:lighter;
+    font-size: 23px;
+}
+#rating{
+    background-color: green;
+    color: white;
+    width: 100px;
+    height: 35px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.user-info-form{
+    font-size: 15px;
+    align-content: flex-start;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    padding: 20px;
+}
+.user-info-form h2{
+    /* background-color: rgb(255, 208, 210); */
+    width:80%;
+}
+.user-info-form p{
+    font-size: 18px;
+}
+.user-info-form label{
+    font-size: 18px;
+    font-weight: bold;
+    
+}
+.user-info-form input{
+    width: 80%;
+    height: 35px;
+    text-align:start;
+    
+}
+.user-info-form button{
+    width: 200px;
+    height: 40px;
+    background-color: aqua;
+    font-size: 18px;
+}
+#gstAmount,#discountAmount,#totalPrice{
+    font-size: 18px;
+}
+
+@media only screen and (max-width: 768px){
+    .confirmation-container{
+        display:block;
+       }
+       #placeImage{
+        height: 200px;
+        width: 500px;
+        border-radius: 5px;
+        justify-content: flex-end;
+        align-content: flex-end;
+        padding: 0px;
+        margin: 0px;
+    }
+    .details-info{
+        display: block;
+    }
+}
+
+@media only screen and (max-width:480px){
+    .confirmation-details {
+        flex-direction: column;
+    }
+    #placeImage{
+        height: 200px;
+        width: 500px;
+        border-radius: 5px;
+        justify-content: flex-end;
+        align-content: flex-end;
+        padding: 0px;
+        margin: 0px;
+    }
+}

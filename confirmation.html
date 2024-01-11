@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <link rel="stylesheet" href="confirmation.css">
+</head>
+
+<body>
+    <a href="#" id="modifyBookingBtn" class="btn btn-secondary" onclick="history.back()">← Modify Booking</a>
+    <div class="confirmation-container">
+        <div class="confirmation-details">
+            <div>
+                <img id="placeImage" alt="Place Image" style="max-width: 100%;">
+            </div>
+            <div class="details-info">
+                <p id="locationName"></p>
+                <p id="location"></p>
+                <p id="rating"></p>
+                <p id="bookedDates"></p>
+                <hr>
+                <p id="numOfPeople"></p>
+                <p id="roomPrice"></p>
+                <h3>Price details</h3>
+                <p id="gstAmount"></p>
+                <p id="discountAmount"></p>
+                <p id="totalPrice"></p>
+            </div>
+        </div>
+
+        <div class="user-info-form">
+            <h2>Enter Your Information</h2>
+            <hr>
+            <p>We will use these details to confirm your booking</p>
+
+            <div class="form-group user-info-input">
+                <label for="fullName">Full Name:</label><br>
+                <input type="text" class="form-control" id="fullName" placeholder="FirstName LastName" required>
+            </div>
+            <div class="form-group user-info-input">
+                <label for="email">Email Address:</label><br>
+                <input type="email" class="form-control" id="email" placeholder="example@gmail.com" required>
+            </div>
+            <div class="form-group user-info-input">
+                <label for="mobileNumber">Mobile Number:</label><br>
+                <input type="tel" class="form-control" id="mobileNumber" placeholder="eg.1234567890" maxlength="10"
+                    required>
+            </div>
+            <button type="button" class="btn btn-primary" id="confirmButton">Confirm Booking</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Function to extract query parameters from the URL
+            const confirmButton = document.getElementById('confirmButton');
+
+            if (confirmButton) {
+                confirmButton.addEventListener('click', function () {
+                    confirmBooking();
+                });
+            }
+
+            // Function to confirm booking
+            function confirmBooking() {
+                const fullName = document.getElementById('fullName').value;
+                const email = document.getElementById('email').value;
+                const mobileNumber = document.getElementById('mobileNumber').value;
+
+                if (!fullName || !email || !mobileNumber) {
+                    alert('Please fill in all the required information.');
+                    return;
+                }
+
+                storePlaceDetails();
+
+                // Placeholder function for booking confirmation logic
+                alert('Booking confirmed! Thank you for choosing our place.');
+                window.location.href = 'home.html';
+            }
+
+            function getQueryParameter(name) {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(name);
+            }
+
+            function storePlaceDetails() {
+                const placeDetailsKey = 'selectedPlaceDetails';
+                const bookedPlacesKey = 'bookedPlaces';
+                const placeDetails = {
+                    location: getQueryParameter('title'),
+                    rating: getQueryParameter('rating'),
+                    bookedDates: `${getQueryParameter('checkInDate')} to ${getQueryParameter('checkOutDate')}`,
+                    numOfPeople: `Number of People: Adults: ${getQueryParameter('numAdults')}`,
+                    roomPrice: `Room Price: ₹${getQueryParameter('roomPrice')}`,
+                    gstAmount: `GST: ₹${getQueryParameter('gstAmount')}`,
+                    discountAmount: `Discount: ₹${getQueryParameter('discountAmount')}`,
+                    totalPrice: `Total Price: ₹${getQueryParameter('totalPrice')}`
+                };
+
+                //console.log('Stored place details:', placeDetails);
+
+                //localStorage.setItem(placeDetailsKey, JSON.stringify(placeDetails));
+                let bookedPlaces = JSON.parse(localStorage.getItem(bookedPlacesKey)) || [];
+
+                // Store the current booking details
+                bookedPlaces.push(placeDetails);
+
+                // Update local storage with the new booked places
+                localStorage.setItem(bookedPlacesKey, JSON.stringify(bookedPlaces));
+
+            }
+            function getQueryParameter(name) {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(name);
+            }
+            function displayBookedPlaces(key) {
+                const bookedPlacesKey =  document.getElementById('bookedPlacesList');
+                if (!bookedPlacesList) {
+                    console.error("Element with ID 'bookedPlacesList' not found.");
+                    return;
+                }
+
+                const bookedPlacesList = document.getElementById('bookedPlacesList');
+
+                // Retrieve booked places from local storage
+                const bookedPlaces = JSON.parse(localStorage.getItem(bookedPlacesKey)) || [];
+
+                // Clear previous content
+                bookedPlacesList.innerHTML = '';
+
+                // Display each booked place in the list
+                bookedPlaces.forEach(place => {
+                    const listItem = document.createElement('li');
+                    // const placeName = place.location || 'Unknown Place';
+                    // const checkInDate = place.bookedDates || 'Unknown Check-in Date';
+                    // const checkOutDate = place.bookedDates ||'Unknown check-out Date';
+                    listItem.textContent = `${place.locationName} - ${place.bookedDates}`;
+                    bookedPlacesList.appendChild(listItem);
+                });
+            }
+
+
+
+            // Function to populate details on page load
+            function populateDetails() {
+                // ... (Your existing code for populating details)
+                const placeImage = document.getElementById('placeImage');
+                const locationName = document.getElementById('locationName');
+                const rating = document.getElementById('rating');
+                const bookedDates = document.getElementById('bookedDates');
+                const numOfPeople = document.getElementById('numOfPeople');
+                const roomPrice = document.getElementById('roomPrice');
+                const gstAmount = document.getElementById('gstAmount');
+                const discountAmount = document.getElementById('discountAmount');
+                const totalPrice = document.getElementById('totalPrice');
+
+
+                // Extracting values from query parameters
+                const imageUrl = getQueryParameter('img_url1');
+                const title = getQueryParameter('title');
+                const ratingValue = getQueryParameter('rating');
+                const checkInDate = getQueryParameter('checkInDate');
+                const checkOutDate = getQueryParameter('checkOutDate');
+                const numAdults = getQueryParameter('numAdults');
+                const roomPriceValue = getQueryParameter('roomPrice');
+                const gstAmountValue = getQueryParameter('gstAmount');
+                const discountAmountValue = getQueryParameter('discountAmount');
+                const totalPriceValue = getQueryParameter('totalPrice');
+
+                // Populate HTML elements with values
+                placeImage.src = imageUrl;
+                locationName.innerText = title;
+                rating.innerText = ratingValue;
+                bookedDates.innerText = `📅 ${checkInDate} to ${checkOutDate}`;
+                numOfPeople.innerText = `Number of People: Adults: ${numAdults}`;
+                roomPrice.innerText = `Room Price: ₹${roomPriceValue}`;
+                gstAmount.innerText = `GST: ₹${gstAmountValue}`;
+                discountAmount.innerText = `Discount: ₹${discountAmountValue}`;
+                totalPrice.innerText = `Total Price: ₹${totalPriceValue}`;
+
+            }
+
+            // Call the populateDetails function when the page loads
+            populateDetails();
+        });    
+    </script>
+
+</body>
+
+</html>

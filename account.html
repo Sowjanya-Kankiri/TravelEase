@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Account</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            background-color: #f8f8f8;
+        }
+
+        .navbar {
+            background-color: #333;
+            padding: 15px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar img {
+            height: 30px;
+            width: auto;
+            cursor: pointer;
+        }
+        p {
+
+            margin-top: 10px;
+            color: #050505;
+            height: max-content;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 10px;
+        }
+
+        #bookedPlaces,#favoritePlaces,
+        #userdetails {
+
+            margin-top: 20px;
+            height: auto;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        #bookedPlaces ul {
+            background-color: aliceblue;
+            height: max-content;
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        #logoutButton {
+            background-color: #fd6a6f;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #logoutButton:hover {
+            background-color: #ff4d52;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="home.html"><img src="images/Airbnb_Logo.png"></a>
+        <button id="logoutButton">Logout</button>
+    </div>
+
+    <!-- profile.html -->
+    <div id="userdetails">
+        <h2>User Profile</h2>
+        <p>Name: <span id="userName"></span></p>
+        <p>Email: <span id="userEmail"></span></p>
+    </div>
+
+
+    <div id="bookedPlaces">
+        <h2>Previously Booked Places</h2>
+        <ul id="bookedPlacesList"></ul>
+    </div>
+
+
+    <!-- profile.html -->
+    <div id="favoritePlaces">
+        <h2>Favorite Places</h2>
+        <ul id="favoritePlacesList"></ul>
+    </div>
+
+    <script src="account.js"></script>
+   
+</body>
+
+</html>

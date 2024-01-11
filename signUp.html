@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <link rel="stylesheet" href="formStyle.css">
+</head>
+<body>
+     <div class="nav">
+        <img src="images/Airbnb_Logo.png">
+       
+    </div> 
+    <div class="box">
+        <h2>Welcome to AirBnB!!</h2>
+    <form>
+        <label>Name</label><br>
+        <input id="name" type="text" placeholder="full name"><br><br>
+        <label>Email</label><br>
+        <input id="email" type="email" placeholder="example@gmail.com"><br><br>
+        <label>Password</label><br>
+        <input id="password" type="password" placeholder="password"><br><br>
+
+        <input id="submit" type="submit" value="SignUp">
+
+        <p>Already have an account?<a href="signIn.html">SignIn</a></p>
+    </form>
+</div>
+</body>
+<script>
+   let form=document.querySelector("form");
+   let signupLS=JSON.parse(localStorage.getItem("signup"))|| [];
+   form.addEventListener("submit",
+   function(event){
+    event.preventDefault()
+    let obj={
+        name:form.name.value.trim(),
+        email:form.email.value.trim(),
+        password:form.password.value.trim()
+    }
+   if(!obj.name || !obj.email || !obj.password){
+    alert("field empty");
+    return 
+   }
+   else{
+    signupLS.push(obj);
+    localStorage.setItem("signup",JSON.stringify(signupLS));
+    alert("Registration succesful");
+    window.location.href="signin.html";
+   }
+   });
+</script>
+</html>

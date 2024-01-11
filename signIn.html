@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="formStyle.css">
+</head>
+<body>
+    <div class="nav">
+        <img src="images/Airbnb_Logo.png">
+     </div> 
+    <div class="box">
+    <p id="text"> Welcome back!! </p>
+    <form>
+        <label>Email</label><br>
+        <input type="email" id="email" placeholder="Email"><br><br>
+        <label>Password</label><br>
+        <input type="password" id="password" placeholder="Password"><br><br>
+        <input type="submit" id="submit" value="SignIn">
+
+        <p> Don't have an Account ?<a href="signUp.html">SignUp</a></p>
+    </form>
+</div>
+</body>
+<script>
+    let form=document.querySelector("form");
+    let signupLS=JSON.parse(localStorage.getItem("signup"))||[];
+    form.addEventListener("submit",
+    function(event){
+        event.preventDefault();
+        if(signupLS.length==0){
+            alert("check the username / password and re-enter");
+            return ;
+        }
+        let obj={
+            email:form.email.value,
+            password:form.password.value
+        }
+
+        let isSignedIn=false;
+        signupLS.forEach(function(ele) {
+            if(ele.email===obj.email && ele.password===obj.password){
+                isSignedIn=true;
+                localStorage.setItem("signin",JSON.stringify(ele));
+                alert("sign up succesful");
+                window.location.href="home.html";
+            }
+        });
+        if(isSignedIn===false){
+            alert("incorrect details");
+        }
+    })
+</script>
+</html>
